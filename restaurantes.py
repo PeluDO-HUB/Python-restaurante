@@ -60,11 +60,10 @@ def finalizar_app():
         """Exibe mensagem de finalizar app"""
         exibir_subtitulo("Finalizando o App...")
 
-def cadastrar_novo_restaurante():
-    
-    def continuar_resgistro():
-        """
-        Responsavel em manter o cadastro para outra entrada
+
+def continuar_resgistro():
+    """
+    Responsavel em manter o cadastro para outra entrada
         
         Inputs:
         opção do registro = 1, 2 ou qualquer outro caractere
@@ -74,16 +73,18 @@ def cadastrar_novo_restaurante():
         opção do registro == 2  Abre a lista dos restaurantes cadastrados
         qualquer outra opção, retorna ao menu principal
         """
-        try:
-            opcao_registro =int(input("Continuar o registrando ou ver lista? Digite 1 para registrar, 2 para visualizar lista e qualquer outra tecla para retornar ao menu   "))
-            if opcao_registro == 1 :
-                cadastrar_novo_restaurante()
-            elif opcao_registro == 2:
-                listar_restaurantes()
-            else:
-               voltar_menu_principal()
-        except:
+    try:
+        opcao_registro =int(input("Continuar o registrando ou ver lista? Digite 1 para registrar, 2 para visualizar lista e qualquer outra tecla para retornar ao menu   "))
+        if opcao_registro == 1 :
+            cadastrar_novo_restaurante()
+        elif opcao_registro == 2:
+            listar_restaurantes()
+        else:
             voltar_menu_principal()
+    except:
+        voltar_menu_principal()
+
+def cadastrar_novo_restaurante():
     """"
     Essa função é responsável por cadastrar um novo 
     Inputs:
@@ -120,7 +121,6 @@ def listar_restaurantes():
             #ljust(x) limita a qtd de caracteres serão mostrados, x sendo o valor escolhido
             print(f"{restaurantes.index(restaurante)+1}.{nome_restaurante.ljust(20)} | {categoria.ljust(20)} | {ativos}")
             #print(f"{restaurantes.index(restaurante)+1}.{restaurante}")
-            voltar_menu_principal()
     else:
         print("Não há nenhum restaurante listado ;-;")
         try:
@@ -131,6 +131,7 @@ def listar_restaurantes():
                 voltar_menu_principal()
         except:
             voltar_menu_principal()
+    voltar_menu_principal()
         
 def alternar_estado_restaurante():
    """
